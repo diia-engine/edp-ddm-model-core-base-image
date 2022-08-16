@@ -16,26 +16,37 @@
 
 package com.epam.digital.data.platform.model.core.geometry;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = Point.class, name = "point"),
-  @JsonSubTypes.Type(value = Line.class, name = "line"),
-  @JsonSubTypes.Type(value = Polygon.class, name = "polygon")
-})
-public abstract class Geometry {
+public class Dot {
 
-  public static final int DEFAULT_WORLD_SRID = 4326;
+  @NotNull
+  private BigDecimal longitude;
+  @NotNull
+  private BigDecimal latitude;
 
-  private int srid = DEFAULT_WORLD_SRID;
-
-  public int getSrid() {
-    return srid;
+  public Dot() {
   }
 
-  public void setSrid(int srid) {
-    this.srid = srid;
+  public Dot(BigDecimal longitude, BigDecimal latitude) {
+    this.longitude = longitude;
+    this.latitude = latitude;
+  }
+
+  public BigDecimal getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(BigDecimal longitude) {
+    this.longitude = longitude;
+  }
+
+  public BigDecimal getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(BigDecimal latitude) {
+    this.latitude = latitude;
   }
 }

@@ -16,26 +16,29 @@
 
 package com.epam.digital.data.platform.model.core.geometry;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = Point.class, name = "point"),
-  @JsonSubTypes.Type(value = Line.class, name = "line"),
-  @JsonSubTypes.Type(value = Polygon.class, name = "polygon")
-})
-public abstract class Geometry {
+public class Line extends Geometry {
 
-  public static final int DEFAULT_WORLD_SRID = 4326;
+  @NotNull
+  @Size(min = 2)
+  @Valid
+  private List<Dot> dots;
 
-  private int srid = DEFAULT_WORLD_SRID;
+  public Line() {}
 
-  public int getSrid() {
-    return srid;
+  public Line(List<Dot> dots) {
+    this.dots = dots;
   }
 
-  public void setSrid(int srid) {
-    this.srid = srid;
+  public List<Dot> getDots() {
+    return dots;
+  }
+
+  public void setDots(List<Dot> dots) {
+    this.dots = dots;
   }
 }

@@ -16,24 +16,20 @@
 
 package com.epam.digital.data.platform.model.core.geometry;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@JsonTypeName("point")
 public class Point extends Geometry {
 
   @NotNull
-  private BigDecimal latitude;
-  @NotNull
   private BigDecimal longitude;
+  @NotNull
+  private BigDecimal latitude;
 
-  public BigDecimal getLatitude() {
-    return latitude;
-  }
+  public Point() {}
 
-  public void setLatitude(BigDecimal latitude) {
+  public Point(BigDecimal longitude, BigDecimal latitude) {
+    this.longitude = longitude;
     this.latitude = latitude;
   }
 
@@ -43,5 +39,13 @@ public class Point extends Geometry {
 
   public void setLongitude(BigDecimal longitude) {
     this.longitude = longitude;
+  }
+
+  public BigDecimal getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(BigDecimal latitude) {
+    this.latitude = latitude;
   }
 }
