@@ -6,7 +6,7 @@
 
     <groupId>com.epam.digital.data.platform</groupId>
     <artifactId>model-core</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
 
     <name>model-core</name>
     <description>Common domain models, which do not require templating</description>
@@ -22,7 +22,8 @@
         <!-- do not calc coverage for the classes without BL: -->
         <sonar.coverage.exclusions>
             **/kafka/*,
-            **/geometry/*
+            **/geometry/*,
+            **/search/*
         </sonar.coverage.exclusions>
     </properties>
 
