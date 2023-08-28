@@ -25,6 +25,7 @@ public class RequestContext {
   private String businessProcessInstanceId;
   private String businessActivity;
   private String businessActivityInstanceId;
+  private String rootBusinessProcessInstanceId;
 
   public String getSystem() {
     return system;
@@ -80,5 +81,13 @@ public class RequestContext {
 
   public void setBusinessActivityInstanceId(String businessActivityInstanceId) {
     this.businessActivityInstanceId = businessActivityInstanceId;
+  }
+
+  public String getRootBusinessProcessInstanceId() {
+    return rootBusinessProcessInstanceId;
+  }
+
+  public void setRootBusinessProcessInstanceId(String rootBusinessProcessInstanceId) {
+    this.rootBusinessProcessInstanceId = rootBusinessProcessInstanceId;
   }
 }
